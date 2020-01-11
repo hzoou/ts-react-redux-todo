@@ -2,16 +2,19 @@ import React from 'react';
 import * as Styled from './style';
 
 interface IItemProps {
+    index: number,
     text: string,
-    done: boolean
+    done: boolean,
+    onClick: Function
 }
 
-const Item = ({ text, done }: IItemProps) => {
+const Item = ({ index, text, done, onClick }: IItemProps) => {
+
     return (
         <Styled.Item>
-            <Styled.Text done={done}>
+            <Styled.Text done={done} onClick={(e) => onClick(e, index)}>
                 {text}
-                <Styled.CheckBox defaultChecked={done} />
+                <Styled.CheckBox checked={done} readOnly={true} />
                 <Styled.CheckMark />
             </Styled.Text>
         </Styled.Item>
