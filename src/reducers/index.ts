@@ -10,7 +10,7 @@ const initialState: TodosState = [
 
 const todos = createReducer<TodosState, TodosAction>(initialState, {
     [ADD_TODO]: (state, { payload: text }) =>
-        [...state, { id: Math.max(...state.map(todo => todo.id)) + 1, text, done: false }],
+        [...state, { id: !state.length ? 1 : Math.max(...state.map(todo => todo.id)) + 1, text, done: false }],
     [TOGGLE_TODO]: (state, { payload: id }) =>
         state.map(todo => (todo.id === id ? { ...todo, done: !todo.done } : todo)),
     [REMOVE_TODO]: (state, { payload: id }) =>
