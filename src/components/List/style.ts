@@ -7,7 +7,6 @@ const List = styled.section`
     overflow-y: scroll;
     
     &::-webkit-scrollbar { 
-        //display: none
         background: none;
         width: 10px;
     }
