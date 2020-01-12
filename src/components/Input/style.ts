@@ -4,7 +4,7 @@ interface IInputProps {
     ref: HTMLInputElement,
 }
 
-const Container = styled.section`
+const Container = styled.form`
     display: flex;
     width: 100%;
 `;

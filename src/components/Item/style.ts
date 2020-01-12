@@ -5,6 +5,9 @@ interface IItemProps {
 }
 
 const Item = styled.article`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1rem;
     margin-bottom: 0.5rem;
@@ -63,4 +66,17 @@ const Text = styled.label<IItemProps>`
     }
 `;
 
-export { Item, CheckBox, CheckMark, Text }
+const Button = styled.button`
+    font-size: 1.1rem;
+    float: right;
+    background: none;
+    cursor: pointer;
+    color: #f9f9f9;
+    font-weight: 900;
+    
+    &:hover {
+        color: #ffa500;
+    }
+`;
+
+export { Item, CheckBox, CheckMark, Text, Button }

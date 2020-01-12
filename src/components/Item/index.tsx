@@ -17,6 +17,7 @@ const Item = ({ index, text, done, onClick }: IItemProps) => {
                 <Styled.CheckBox checked={done} readOnly={true} />
                 <Styled.CheckMark />
             </Styled.Text>
+            <Styled.Button>&times;</Styled.Button>
         </Styled.Item>
     )
 };
