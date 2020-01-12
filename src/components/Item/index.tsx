@@ -1,23 +1,24 @@
 import React from 'react';
 import * as Styled from './style';
 
-interface IItemProps {
-    index: number,
-    text: string,
-    done: boolean,
-    onClick: Function
-}
+import { Todo } from '../../types';
+import useTodoActions from '../../hooks/useTodoAction';
 
-const Item = ({ index, text, done, onClick }: IItemProps) => {
+interface IItemProps {
+    todo: Todo;
+};
+
+const Item = ({ todo }: IItemProps) => {
+    const { onToggle, onRemove } = useTodoActions(todo.id);
 
     return (
         <Styled.Item>
-            <Styled.Text done={done} onClick={(e) => onClick(e, index)}>
-                {text}
-                <Styled.CheckBox checked={done} readOnly={true} />
+            <Styled.Text done={todo.done} onClick={onToggle}>
+                {todo.text}
+                <Styled.CheckBox checked={todo.done} readOnly={true} />
                 <Styled.CheckMark />
             </Styled.Text>
-            <Styled.Button>&times;</Styled.Button>
+            <Styled.Button onClick={onRemove}>&times;</Styled.Button>
         </Styled.Item>
     )
 };
